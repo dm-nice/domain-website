@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DGtech - 專業科技解決方案提供者，提供系統整合、軟體開發、技術諮詢服務">
+    <meta name="keywords" content="科技解決方案,系統整合,軟體開發,技術諮詢,台灣">
+    <meta property="og:title" content="DGtech - 引領科技，驅動未來">
+    <meta property="og:description" content="專業的科技解決方案提供者">
+    <meta property="og:type" content="website">
     <title>DGtech - 引領科技，驅動未來</title>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -28,11 +34,11 @@
 </head>
 <body class="font-sans antialiased">
     <!-- 頂部導覽 -->
-    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50" role="navigation" aria-label="主要導覽">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary mr-2" aria-hidden="true">
                         <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
                         <path d="M2 17l10 5 10-5"></path>
                         <path d="M2 12l10 5 10-5"></path>
@@ -44,8 +50,8 @@
                     <a href="#about" class="text-gray-700 hover:text-primary transition duration-300">關於我們</a>
                     <a href="#contact" class="text-gray-700 hover:text-primary transition duration-300">聯絡我們</a>
                 </div>
-                <button class="md:hidden" onclick="toggleMobileMenu()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <button class="md:hidden" onclick="toggleMobileMenu()" aria-label="切換行動選單" aria-expanded="false" id="mobileMenuBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <line x1="3" y1="12" x2="21" y2="12"></line>
                         <line x1="3" y1="6" x2="21" y2="6"></line>
                         <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -64,7 +70,7 @@
     <!-- Hero 區 -->
     <section class="gradient-bg text-white pt-32 pb-20 px-6">
         <div class="container mx-auto text-center">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">引領科技，驅動未來</h1>
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">引領科技，驅動未來</h1>
             <p class="text-xl md:text-2xl mb-8 text-blue-100">專業的科技解決方案提供者</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#services" class="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition duration-300 inline-block">了解服務</a>
@@ -210,11 +216,11 @@
     </section>
 
     <!-- 頁腳 -->
-    <footer class="bg-primary text-white py-8 px-6">
+    <footer class="bg-primary text-white py-8 px-6" role="contentinfo">
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="flex items-center mb-4 md:mb-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2" aria-hidden="true">
                         <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
                         <path d="M2 17l10 5 10-5"></path>
                         <path d="M2 12l10 5 10-5"></path>
@@ -231,14 +237,17 @@
 
     <script>
         const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 
         function toggleMobileMenu() {
-            mobileMenu.classList.toggle('hidden');
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', !isHidden);
         }
 
         document.querySelectorAll('#mobileMenu a').forEach(menuLink => {
             menuLink.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
             });
         });
     </script>

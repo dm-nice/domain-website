@@ -31,7 +31,8 @@ When triggered without arguments, review the current file or code snippet:
 2. **Check variable naming** - Flag unclear or misleading names
 3. **Assess function length** - Identify overly long functions
 4. **Evaluate comments** - Find redundant comments
-5. **Generate report** - List issues with line numbers
+5. **Research solutions** - For complex logic issues or performance optimization needs, automatically use `google_search` tool to find latest solutions and integrate search results into suggested fixes
+6. **Generate report** - List issues with line numbers and actionable recommendations
 
 ### Mode 2: Project Review
 
@@ -39,8 +40,9 @@ When provided with a directory path:
 
 1. **Scan directory** - Recursively find all code files
 2. **Apply checks** - Run Clean Code checks on each file
-3. **Aggregate results** - Generate integrated report sorted by file path
-4. **Prioritize** - Rank files by issue count
+3. **Research solutions** - For complex logic issues or performance optimization needs, automatically use `google_search` tool to find latest solutions and best practices
+4. **Aggregate results** - Generate integrated report sorted by file path with research-backed recommendations
+5. **Prioritize** - Rank files by issue count and severity
 
 **Supported file extensions:**
 - Python: `.py`
@@ -97,6 +99,66 @@ for (const user of users) {
 ```javascript
 // Using exponential backoff to avoid API rate limits
 await retry(apiCall, { maxAttempts: 3 });
+```
+
+## Research & Solution Discovery
+
+When encountering complex issues during code review, use the `google_search` tool to find modern solutions and best practices.
+
+### When to Use google_search
+
+Automatically search for solutions when you identify:
+
+1. **Performance Issues**
+   - Inefficient algorithms (O(n²) or worse)
+   - Memory leaks or excessive memory usage
+   - Slow database queries or API calls
+
+2. **Complex Logic Problems**
+   - Overly complex conditional logic
+   - Nested loops that could be optimized
+   - Code that's hard to understand or maintain
+
+3. **Modern Best Practices**
+   - Outdated patterns or deprecated APIs
+   - Security vulnerabilities
+   - Framework-specific optimizations
+
+4. **Language-Specific Optimizations**
+   - Python: List comprehensions, generators, async/await
+   - JavaScript: Promise patterns, async patterns, ES6+ features
+   - Java: Stream API, Optional, modern concurrency
+
+### Search Query Guidelines
+
+Format search queries to get the most relevant results:
+
+**Good query examples:**
+- "Python optimize nested loops performance 2024"
+- "JavaScript async await best practices"
+- "Java Stream API vs traditional loop performance"
+- "React useEffect cleanup pattern"
+
+**Include:**
+- Programming language name
+- Specific problem or pattern
+- Year (for latest solutions)
+- Keywords: "best practices", "performance", "optimize"
+
+### Integrating Search Results
+
+After searching:
+1. Summarize the most relevant solution
+2. Provide code example from search results
+3. Explain why this solution is better
+4. Include source URL for reference
+
+**Example in report:**
+```
+Performance Issue (Line 45-60):
+- Current: Nested loops with O(n²) complexity
+- Recommended: Use hash map for O(n) lookup
+- Source: [Modern Python Performance Patterns](https://example.com)
 ```
 
 ## Language-Specific Rules

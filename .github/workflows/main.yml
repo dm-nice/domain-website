@@ -1,0 +1,35 @@
+name: Website Update & Deploy (No API)
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # 基本檢查 (不需 API)
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Basic Security Check
+        run: |
+          python -m pip install --upgrade pip
+          pip install bandit
+          # 僅進行靜態安全性掃描，不消耗 AI 流量
+          bandit -r . -x ./test_lab || true 
+
+      # 自動部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: . # 部署根目錄下的所有檔案 (包含 index.html)
+          branch: gh-pages # 部署到這個分支，GitHub Pages 會自動讀取

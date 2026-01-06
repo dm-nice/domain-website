@@ -14,7 +14,26 @@
     <meta property="og:image:alt" content="DGtech 公司標誌">
     <title>DGtech - 引領科技，驅動未來</title>
 
-    <link href="./dist/output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a',
+                        secondary: '#3b82f6',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+    </style>
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -30,11 +49,9 @@
         }
     }
     </script>
-
 </head>
 
 <body class="font-sans antialiased">
-    <!-- 頂部導覽 -->
     <nav class="bg-white shadow-md fixed w-full top-0 z-50" role="navigation" aria-label="主要導覽">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
@@ -50,6 +67,7 @@
                 </div>
                 <div class="hidden md:flex space-x-8">
                     <a href="#services" class="text-gray-700 hover:text-primary transition duration-300">產品服務</a>
+                    <a href="#trends" class="text-gray-700 hover:text-primary transition duration-300">趨勢洞察</a>
                     <a href="#about" class="text-gray-700 hover:text-primary transition duration-300">關於我們</a>
                     <a href="#contact" class="text-gray-700 hover:text-primary transition duration-300">聯絡我們</a>
                 </div>
@@ -64,16 +82,15 @@
                     </svg>
                 </button>
             </div>
-            <!-- Mobile Menu -->
             <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4">
                 <a href="#services" class="block py-2 text-gray-700 hover:text-primary transition duration-300">產品服務</a>
+                <a href="#trends" class="block py-2 text-gray-700 hover:text-primary transition duration-300">趨勢洞察</a>
                 <a href="#about" class="block py-2 text-gray-700 hover:text-primary transition duration-300">關於我們</a>
                 <a href="#contact" class="block py-2 text-gray-700 hover:text-primary transition duration-300">聯絡我們</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero 區 -->
     <section class="gradient-bg text-white pt-32 pb-20 px-6">
         <div class="container mx-auto text-center">
             <h1 class="text-5xl md:text-6xl font-bold mb-6">引領科技，驅動未來</h1>
@@ -87,16 +104,13 @@
         </div>
     </section>
 
-    <!-- 服務項目 -->
     <section id="services" class="py-20 px-6 bg-gray-50">
         <div class="container mx-auto">
             <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">核心服務</h2>
             <p class="text-center text-gray-600 mb-12">提供全方位的科技解決方案</p>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1: 系統整合 -->
-                <div
-                    class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                <div class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
                     <div class="bg-blue-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -111,9 +125,7 @@
                     <p class="text-gray-600 leading-relaxed">提供企業級系統整合服務，整合各類資訊系統，提升企業營運效率，打造無縫的數位化工作環境。</p>
                 </div>
 
-                <!-- Card 2: 軟體開發 -->
-                <div
-                    class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                <div class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
                     <div class="bg-blue-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -126,9 +138,7 @@
                     <p class="text-gray-600 leading-relaxed">量身打造客製化軟體解決方案，從需求分析到系統維護，提供完整的軟體開發生命週期服務。</p>
                 </div>
 
-                <!-- Card 3: 技術諮詢 -->
-                <div
-                    class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                <div class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
                     <div class="bg-blue-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -143,8 +153,44 @@
         </div>
     </section>
 
-    <!-- 關於我們 -->
-    <section id="about" class="py-20 px-6 bg-white">
+    <section id="trends" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">最新科技趨勢</h2>
+            <p class="text-center text-gray-600 mb-12">掌握 AI 前沿動態，與 DGtech 一同探索未來</p>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md border border-gray-100 transition duration-300 hover:shadow-lg">
+                    <div class="relative pb-[56.25%] h-0 overflow-hidden">
+                        <iframe class="absolute top-0 left-0 w-full h-full" 
+                            src="https://www.youtube.com/embed/aj4sNPnHusk" 
+                            title="Tenstorrent黑科技曝光" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Tenstorrent 黑科技：不用 HBM 也能跑 AI</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">分析 Tenstorrent 如何挑戰傳統架構，以 1/10 的價格提供高效能 AI 算力方案，打破硬體壟斷。</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md border border-gray-100 transition duration-300 hover:shadow-lg">
+                    <div class="relative pb-[56.25%] h-0 overflow-hidden">
+                        <iframe class="absolute top-0 left-0 w-full h-full" 
+                            src="https://www.youtube.com/embed/n0BEQZB485I" 
+                            title="2026 CES AMD 演講解讀" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">2026 CES 邊緣革命：AMD 佈局解讀</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">直擊 2026 拉斯維加斯 CES 大會，解析 AMD 蘇姿豐如何聯手李飛飛啟動邊緣革命，重塑市場格局。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-6 bg-gray-50">
         <div class="container mx-auto max-w-4xl">
             <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">關於我們</h2>
             <p class="text-center text-gray-600 mb-12">致力於科技創新與卓越服務</p>
@@ -173,21 +219,18 @@
         </div>
     </section>
 
-    <!-- 聯絡我們 -->
-    <section id="contact" class="py-20 px-6 bg-gray-50">
+    <section id="contact" class="py-20 px-6 bg-white">
         <div class="container mx-auto max-w-4xl">
             <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">聯絡我們</h2>
             <p class="text-center text-gray-600 mb-12">我們期待與您合作</p>
 
-            <div class="bg-white rounded-lg shadow-lg p-8 md:p-12">
+            <div class="bg-white rounded-lg shadow-lg p-8 md:p-12 border border-gray-100">
                 <div class="grid md:grid-cols-2 gap-8">
                     <div class="flex items-start">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="text-primary mr-4 mt-1">
-                            <path
-                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                            </path>
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
                         <div>
                             <h3 class="font-bold text-gray-800 mb-2">電話</h3>
@@ -199,8 +242,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="text-primary mr-4 mt-1">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                            </path>
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                             <polyline points="22,6 12,13 2,6"></polyline>
                         </svg>
                         <div>
@@ -246,7 +288,6 @@
         </div>
     </section>
 
-    <!-- 頁腳 -->
     <footer class="bg-primary text-white py-8 px-6" role="contentinfo">
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center">

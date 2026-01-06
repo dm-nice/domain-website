@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Utilities copied from index.html style block */
+.gradient-bg {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+}
+
+@layer base {
+    a:focus-visible,
+    button:focus-visible {
+        outline: 2px solid #1e3a8a;
+        outline-offset: 2px;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+}

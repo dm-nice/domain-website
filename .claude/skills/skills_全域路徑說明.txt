@@ -1,0 +1,7 @@
+
+2026.01.06 DM的 第1個 Skill 全域路徑
+
+/Skills 目錄放到 >>>  （\專案\ .claude/skills 整個目錄），全域路徑
+
+不論您在哪個資料夾開啟 Claude，
+只要輸入 /review-code   ，.claude/skills 目錄下的  /review-code 功能都能生效。

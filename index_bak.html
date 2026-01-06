@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DGtech - 專業科技解決方案提供者，提供系統整合、軟體開發、技術諮詢服務">
+    <meta name="keywords" content="科技解決方案,系統整合,軟體開發,技術諮詢,台灣">
+    <meta property="og:title" content="DGtech - 引領科技，驅動未來">
+    <meta property="og:description" content="專業的科技解決方案提供者">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dgtech.com.tw">
+    <meta property="og:image" content="https://dgtech.com.tw/og-image.jpg">
+    <meta property="og:image:alt" content="DGtech 公司標誌">
+    <title>DGtech - 引領科技，驅動未來</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a',
+                        secondary: '#3b82f6',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        /* 影片摺疊動畫效果 */
+        .video-wrapper {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            background: #f8fafc;
+        }
+        .video-wrapper.active {
+            max-height: 800px;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        .video-aspect {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 比例 */
+            height: 0;
+        }
+        .video-aspect iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DGtech",
+        "url": "https://dgtech.com.tw",
+        "description": "專業的科技解決方案提供者",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Service",
+            "telephone": "+886-2-1234-5678",
+            "email": "info@dgtech.com.tw"
+        }
+    }
+    </script>
+</head>
+
+<body class="font-sans antialiased">
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50" role="navigation" aria-label="主要導覽">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-primary mr-2" aria-hidden="true">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                    </svg>
+                    <span class="text-2xl font-bold text-primary">DGtech</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="text-gray-700 hover:text-primary transition duration-300">產品服務</a>
+                    <a href="#trends" class="text-gray-700 hover:text-primary transition duration-300 font-bold">趨勢洞察</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary transition duration-300">關於我們</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition duration-300">聯絡我們</a>
+                </div>
+                <button class="md:hidden" onclick="toggleMobileMenu()" aria-label="切換行動選單" aria-expanded="false"
+                    id="mobileMenuBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#services" class="block py-2 text-gray-700 hover:text-primary">產品服務</a>
+                <a href="#trends" class="block py-2 text-gray-700 hover:text-primary font-bold">趨勢洞察</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-primary">關於我們</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-primary">聯絡我們</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="gradient-bg text-white pt-32 pb-20 px-6">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">引領科技，驅動未來</h1>
+            <p class="text-xl md:text-2xl mb-8 text-blue-100">專業的科技解決方案提供者</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#services"
+                    class="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition duration-300 inline-block">了解服務</a>
+                <a href="#contact"
+                    class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition duration-300 inline-block">立即諮詢</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="trends" class="py-16 px-6 bg-white border-b border-gray-100">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">最新科技趨勢</h2>
+            <p class="text-gray-500 mb-8 text-sm">點擊標題即可展開觀看分析影片</p>
+            
+            <div class="space-y-4">
+                <div class="border-b border-gray-50 pb-2">
+                    <button onclick="toggleVideo('vid1')" class="flex items-center w-full text-left group py-2 focus:outline-none">
+                        <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mr-4 group-hover:bg-primary transition">
+                            <svg class="w-4 h-4 text-primary group-hover:text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-700 group-hover:text-primary transition">Tenstorrent 黑科技：不用 HBM 也能跑 AI，價格僅傳統方案 1/10</h3>
+                    </button>
+                    <div id="vid1" class="video-wrapper">
+                        <div class="video-aspect shadow-md rounded-lg overflow-hidden">
+                            <iframe src="https://www.youtube.com/embed/aj4sNPnHusk" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-b border-gray-50 pb-2">
+                    <button onclick="toggleVideo('vid2')" class="flex items-center w-full text-left group py-2 focus:outline-none">
+                        <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mr-4 group-hover:bg-primary transition">
+                            <svg class="w-4 h-4 text-primary group-hover:text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-700 group-hover:text-primary transition">2026 CES 邊緣革命：AMD 蘇姿豐聯手李飛飛重塑市場格局</h3>
+                    </button>
+                    <div id="vid2" class="video-wrapper">
+                        <div class="video-aspect shadow-md rounded-lg overflow-hidden">
+                            <iframe src="https://www.youtube.com/embed/n0BEQZB485I" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">核心服務</h2>
+            <p class="text-center text-gray-600 mb-12">提供全方位的科技解決方案</p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                    <div class="bg-blue-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-primary">
+                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">系統整合</h3>
+                    <p class="text-gray-600 leading-relaxed">提供企業級系統整合服務，整合各類資訊系統，提升企業營運效率，打造無縫的數位化工作環境。</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                    <div class="bg-blue-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-primary">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">軟體開發</h3>
+                    <p class="text-gray-600 leading-relaxed">量身打造客製化軟體解決方案，從需求分析到系統維護，提供完整的軟體開發生命週期服務。</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                    <div class="bg-blue-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-primary">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">技術諮詢</h3>
+                    <p class="text-gray-600 leading-relaxed">專業的技術顧問團隊，協助企業評估技術需求，規劃數位轉型策略，提供最佳的技術解決方案建議。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-6 bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">關於我們</h2>
+            <p class="text-center text-gray-600 mb-12">致力於科技創新與卓越服務</p>
+
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-8 md:p-12">
+                <div class="flex items-start mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-primary mr-4 flex-shrink-0">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">我們的願景</h3>
+                        <p class="text-gray-700 leading-relaxed text-lg mb-4">
+                            DGtech 致力於成為台灣最值得信賴的科技解決方案夥伴。我們深信科技的力量能夠改變企業的運作方式，提升競爭力，創造更大的價值。
+                        </p>
+                        <p class="text-gray-700 leading-relaxed text-lg mb-4">
+                            透過專業的技術團隊、豐富的產業經驗，以及對創新的不懈追求，我們為客戶提供最適切的數位化解決方案。
+                        </p>
+                        <p class="text-gray-700 leading-relaxed text-lg font-semibold text-primary">
+                            引領科技創新，驅動企業未來發展，是我們永恆的使命。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-4xl font-bold text-gray-800 mb-12">聯絡我們</h2>
+            <div class="grid md:grid-cols-2 gap-8 text-left">
+                <div class="flex items-center">
+                    <div class="text-primary mr-4 font-bold text-xl">電話</div>
+                    <p class="text-gray-600">+886-2-1234-5678</p>
+                </div>
+                <div class="flex items-center">
+                    <div class="text-primary mr-4 font-bold text-xl">郵件</div>
+                    <p class="text-gray-600">info@dgtech.com.tw</p>
+                </div>
+            </div>
+            <div class="mt-12">
+                <a href="mailto:info@dgtech.com.tw" class="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-800 transition">立即連繫</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-primary text-white py-8 px-6 text-center">
+        <p class="text-blue-200 mb-2">© 2026 DGtech. All rights reserved.</p>
+        <p class="text-blue-200 text-sm">引領科技，驅動未來</p>
+    </footer>
+
+    <script>
+        // 行動選單邏輯
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+        function toggleMobileMenu() {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', !isHidden);
+        }
+
+        document.querySelectorAll('#mobileMenu a').forEach(menuLink => {
+            menuLink.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // 影片切換展開邏輯
+        function toggleVideo(id) {
+            const wrapper = document.getElementById(id);
+            const isActive = wrapper.classList.contains('active');
+            
+            // 先關閉所有可能打開的影片
+            document.querySelectorAll('.video-wrapper').forEach(w => w.classList.remove('active'));
+            
+            // 如果原本是關閉的，則打開它
+            if (!isActive) {
+                wrapper.classList.add('active');
+            }
+        }
+    </script>
+</body>
+
+</html>

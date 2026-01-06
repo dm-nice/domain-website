@@ -3,8 +3,10 @@ name: Website Update & Deploy (No API)
 on:
   push:
     branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+  workflow_dispatch: # 加入這個按鈕，讓你可以手動點擊執行
+
+permissions:
+  contents: write # 確保有寫入權限建立 gh-pages
 
 jobs:
   build-and-deploy:
@@ -14,22 +16,21 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # 基本檢查 (不需 API)
+      # 基礎環境檢查
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
-      - name: Basic Security Check
-        run: |
-          python -m pip install --upgrade pip
-          pip install bandit
-          # 僅進行靜態安全性掃描，不消耗 AI 流量
-          bandit -r . -x ./test_lab || true 
+      - name: Install Bandit
+        run: pip install bandit
 
-      # 自動部署到 GitHub Pages
+      - name: Basic Security Check
+        run: bandit -r . -x ./test_lab || true 
+
+      # 【關鍵部署步驟】請確保這一段存在且對齊正確
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: . # 部署根目錄下的所有檔案 (包含 index.html)
-          branch: gh-pages # 部署到這個分支，GitHub Pages 會自動讀取
+          folder: . # 將根目錄所有檔案（包含 index.html）發布
+          branch: gh-pages # 指定發布到 gh-pages 分支

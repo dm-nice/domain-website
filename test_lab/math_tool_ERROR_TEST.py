@@ -1,11 +1,11 @@
 # test_lab/math_tool.py
 
-def divide_numbers(a, b):
+def divide_numbers(numerator, denominator):
     """
-    將 a 除以 b 並返回結果。
+    將分子除以分母並返回結果。
     (注意：這段代碼故意沒有處理除以零的情況，也沒有型別檢查)
     """
-    return a / b
+    return numerator / denominator
 
 def calculate_average(numbers):
     """

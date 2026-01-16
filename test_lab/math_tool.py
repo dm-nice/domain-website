@@ -23,7 +23,6 @@ def calculate_average(numbers: List[float]) -> float:
         return 0
     return sum(numbers) / len(numbers)
 
-# 1. 效能測試目標：優化的費氏數列計算 (使用備忘錄快取)
 @lru_cache(maxsize=128)
 def slow_fibonacci(n: int) -> int:
     """
@@ -34,7 +33,25 @@ def slow_fibonacci(n: int) -> int:
         return n
     return slow_fibonacci(n - 1) + slow_fibonacci(n - 2)
 
-# 2. 安全的系統呼叫：使用 subprocess.run 替代 os.system
+def _execute_windows_command(user_input: str) -> subprocess.CompletedProcess:
+    """在 Windows 上執行 echo 命令。"""
+    return subprocess.run(
+        f'echo {user_input}',
+        shell=True,
+        capture_output=True,
+        text=True,
+        timeout=5
+    )
+
+def _execute_unix_command(user_input: str) -> subprocess.CompletedProcess:
+    """在 Unix/Linux 上執行 echo 命令。"""
+    return subprocess.run(
+        ["echo", user_input],
+        capture_output=True,
+        text=True,
+        timeout=5
+    )
+
 def run_system_command(user_input: str) -> str:
     """
     根據用戶輸入執行系統指令。
@@ -42,24 +59,12 @@ def run_system_command(user_input: str) -> str:
     """
     try:
         import platform
-        # 在 Windows 上使用 shell=True 與內建命令
         if platform.system() == "Windows":
-            result = subprocess.run(
-                f'echo {user_input}',
-                shell=True,
-                capture_output=True,
-                text=True,
-                timeout=5
-            )
+            result = _execute_windows_command(user_input)
         else:
-            result = subprocess.run(
-                ["echo", user_input],
-                capture_output=True,
-                text=True,
-                timeout=5
-            )
+            result = _execute_unix_command(user_input)
         return f"Executed: echo {user_input}\nOutput: {result.stdout.strip()}"
     except subprocess.TimeoutExpired:
         raise RuntimeError("命令執行逾時")
-    except Exception as e:
-        raise RuntimeError(f"命令執行失敗: {e}")
+    except Exception as error:
+        raise RuntimeError(f"命令執行失敗: {error}")

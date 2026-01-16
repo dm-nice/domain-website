@@ -11,7 +11,21 @@
       "Bash(powershell -Command \"$env:PYTHONIOENCODING=''utf-8''; & python ''C:\\\\Users\\\\dm_li\\\\.claude\\\\plugins\\\\cache\\\\anthropic-agent-skills\\\\document-skills\\\\69c0b1a06741\\\\skills\\\\skill-creator\\\\scripts\\\\init_skill.py'' clean-code-reviewer --path ''c:\\\\AI\\\\Domain\\\\.claude\\\\skills''\")",
       "Bash(gh pr list:*)",
       "Bash(ls:*)",
-      "Bash(echo $ANTHROPIC_API_KEY)"
+      "Bash(echo $ANTHROPIC_API_KEY)",
+      "Bash(claude mcp list:*)",
+      "Bash(claude mcp --help:*)",
+      "Bash(claude mcp add --help:*)",
+      "Bash(npm install:*)",
+      "Bash(claude mcp add --transport stdio filesystem -- npx -y @modelcontextprotocol/server-filesystem \"c:\\\\AI\\\\Domain\")",
+      "mcp__filesystem__list_directory",
+      "Skill(project-reviewer)",
+      "Skill(project-reviewer:*)",
+      "mcp__filesystem__read_text_file",
+      "Bash(unzip:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(findstr:*)",
+      "Bash(git -C \"C:\\\\AI\\\\Domain\" log --oneline -20)",
+      "Bash(git -C \"C:\\\\AI\\\\Domain\" status --short)"
     ]
   }
 }
